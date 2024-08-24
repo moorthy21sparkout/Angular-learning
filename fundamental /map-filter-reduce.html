@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * map different method to try
+         * 
+         */
+
+         //method 1
+        const arr =[1,3,5,7,9,10];
+        function double(value){
+           return value*2;
+        }
+        const output = arr.map(double);
+        console.log(output);
+
+        //method 2
+        const value = [9,8,7,6,5,4,3,2,4,6,8];
+
+        const output_1 = value.map(function binary(value){
+            return value.toString(2);
+        }) 
+        console.log(output_1);
+
+        //method 3
+        const data = [1,4,6,3,1];
+        const output_2 = data.map((x)=>x.toString(2));
+        // all data value to be store the map variable value 
+        console.log(data.map((x)=>x));
+
+        console.log(output_2);
+    </script>
+</body>
+</html>
