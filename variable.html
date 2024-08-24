@@ -1,0 +1,77 @@
+    <html>
+        <body>
+            <p id="demo"></p>
+            <p class="one"> </p>
+
+            <script>
+                let prices='twenty';
+                prices = 567;
+                document.getElementById('demo').innerHTML="the value is:" +prices;
+                let first_amout=24;
+                let secound_amout=23;
+                let total = first_amout + secound_amout;
+                document.getElementsByClassName('one')[0].innerHTML="the total value  is: "+total;
+
+                // variable
+                function demo(){
+                    a=1;
+                    y=4;
+                    if(a==10){
+                        var y = 24;
+                        y= 27;
+                        // console.log(y);
+                        
+                    }else{
+                    console.log(y);
+                    }
+                
+                }
+                demo();   // return call the function
+
+                //loop statement 
+
+
+
+                //for loop
+                // var q = 10;
+                for(q=0;q<=9;q++){
+                    console.log(q);
+                }
+                while(q>9){
+                    console.log(q);
+                }
+
+                // Conditional  statement 
+
+
+                let a = 23;
+                if(a == 23){
+                    console.log("the value is the :",a);
+                } else if(a == 20){
+                    console.log("the value is notequal :",a);
+                }else {
+                    console.log("the value is not defined");    
+                    
+
+                }
+
+               var value=28;
+                function add(value){
+                    if(value  == 28){
+                        console.log("hi");
+                        
+                        throw new error(':the value is not match');
+                    }
+                    return value;
+                }
+                // add(value);
+                try {
+                            add(28);
+                    } catch (error) {
+                        // Handle the error
+                        console.error("Caught an error:", error.message);
+                    }
+
+                </script>
+        </body>
+    </html> 

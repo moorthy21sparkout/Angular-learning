@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                class Person{
+            constructor(name) {
+                this.name = name;
+            }
+
+        }
+        const p = new Person('moorthy');
+        console.log(p);
+
+        //object protoype 
+    let animal = {
+            makeSound: function(){
+                console.log("make sound high;");
+            }
+        };
+
+    let dog = Object.create(animal);
+dog.makeSound();
+
+        //Hostiong
+
+        function exampleHosting(){
+            console.log(a);
+            console.log(b);
+            console.log(c);
+    console.log(d);
+
+            var a=10;
+            let b=20;
+const c=34;
+            class d {}
+
+        }
+
+        exampleHosting();
+
+        
+
+
+    </script>
+</body>
+</html>
