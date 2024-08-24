@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //array
+        let name = ["apple","banana","orange"];
+        console.log(name[1],name[0]);
+        console.log(name.length);
+
+
+        //object
+
+        let human = {
+            name :"sudhan",
+            age:"23",
+            work:"sparkout tech",
+
+            greet: function (){
+                console.log("hello iam "+this.name,".Iam "+this.age,"and current working in "+this.work);
+            }
+        }
+        human.greet();
+        
+
+       
+        /**
+         * map *
+         * map is the collection of key and value pair
+         *
+         */
+
+         let value = new Map();
+         value.set("name","kesavan");
+         value.set("age",23);
+         value.set("work","sparkout");
+         value.set("from","comibature");
+
+        for(let [key,val] of value){
+            console.log(`${key}:${val}`);
+            
+        }
+         console.log(value.size);
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function x(){
+            let value = "moorthy";
+            setTimeout(function(){
+                console.log("my name is:",value);
+                
+            },5000)
+            console.log("welcome");
+            console.log("wait for a  secound");
+            
+        }
+        x();
+
+        function data(){
+            for(let a=1;a<=10;a++){
+                setTimeout(function() {
+                   console.log("number",a); 
+                },a * 10000);
+            }
+        }
+        data();
+        let data = "warning";
+        setInterval (()=>{
+            console.log(data);
+        },1000000)
+
+        function check(){
+            for ( var abd=1;abd<=10;abd++){
+                function closer(abd){
+                   setTimeout(function() {
+                    console.log("the number value is",abd)
+                   },  5000);
+                }
+                closer(abd)
+            }
+        }
+        check();
+    </script>
+</body>
+</html>
