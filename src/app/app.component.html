@@ -1,0 +1,65 @@
+
+<!-- string interpolation -->
+<!-- the value is the come from the app.component.js-->
+<h1>{{title}} *</h1>
+<br>
+
+<!--one way data binding is the one chnege the complnent side or view side-->
+{{fullName}}
+
+
+
+<!--ng Model is the two way data binding the value is change the both side like component and view page-->
+<input type="text" [(ngModel)] = "title">
+<br><br><br>
+
+<!--we also pass the function also-->
+{{getValue()}}
+
+
+<!--Property binding -->
+<h2 [innerHTML]="fullName"></h2>
+
+<h2 [innerHTML]="title"></h2>
+
+<button [disabled]="isDisabled">Submit</button>
+
+<div [class.active]="isActive">This is the active div</div>
+
+<h4 [style.color]="color">the color is red</h4>
+
+<input [value]="inputValue">
+
+<!--Event Binding -->
+
+<h3> Click the {{clickValue}} time</h3>
+
+<button (click)="click()">Click Me!!</button><br><br>
+
+  <button (click)="onButtonClick()">Click This</button>
+
+  <p [style.color]="color">{{message}}</p>
+
+
+  <input (input)="onInputChange($event)" placeholder="Enter the name buddy">
+
+  <h4>Hi Your Name: {{inputText}}</h4>
+
+  <p>pleace click the double time</p>
+  <button (dblclick)="onDoubleClick()">Double Click Me!!</button>
+  <p>
+    {{doubleClick}}
+  </p>
+
+  <select (change)="onSelect($event)">
+    <option value="moorthy">Moorthy</option>
+    <option value="sudhan">Sudhan</option>
+  </select>
+  <h4>You select the name is: {{onSelection}}</h4>
+
+  <button (click)="onclick()">Click Me</button>
+  <p>Click Count:{{selectCount}}</p>
+
+  <input (focus)="onfocus()" (blur)="onBlur()" placeholder="focus to me !">
+
+  <p>{{focusMessage}}</p>
