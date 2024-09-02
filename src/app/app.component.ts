@@ -1,15 +1,17 @@
-import { Component, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule],
+  imports: [RouterOutlet, FormsModule,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   /**
    * string - interpolation
@@ -70,4 +72,40 @@ export class AppComponent {
   onBlur(){
     this.focusMessage = "not focus";
   }
+
+  userList =[
+    {id:1, name: "sudhan"},
+    {id:2, name: "ram"},
+    {id:3, name: "raj"}
+  ]
+  trackByUserId(index:number,user:any):number{
+    return user.id;
+  }
+
+  checkObservable =new Observable((responce)=>{
+    console.log("working");
+    setTimeout(() => {  responce.next('1')}, 1000);
+    setTimeout(() => {  responce.next('2')}, 2000);
+    setTimeout(() => {  responce.next('3')}, 3000);
+    setTimeout(() => {  responce.complete()}, 43330);
+    setTimeout(() => {  responce.error(new Error("some thing is went to worng .please try it later"))}, 5000);
+    setTimeout(() => {  responce.next('6')}, 6000);
+    setTimeout(() => {  responce.next('7')}, 7000);
+    setTimeout(() => {  responce.error('8')}, 8000);
+    // console.log('1');
+    // console.log('2');
+    // console.log('3');
+    // console.log('4');
+    // console.log('5');
+    // console.log('6');
+    // console.log('7');
+  })
+ngOnInit(): void {
+  this.checkObservable .subscribe((value)=>{
+    console.log(value);
+
+  },(error)=>{
+    alert(error.message)
+  })
+}
 }

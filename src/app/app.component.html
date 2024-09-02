@@ -5,20 +5,20 @@
 <br>
 
 <!--one way data binding is the one chnege the complnent side or view side-->
-{{fullName}}
+<!-- {{fullName}} -->
 
 
 
 <!--ng Model is the two way data binding the value is change the both side like component and view page-->
-<input type="text" [(ngModel)] = "title">
-<br><br><br>
+<!-- <input type="text" [(ngModel)] = "title">
+<br><br><br> -->
 
 <!--we also pass the function also-->
-{{getValue()}}
+<!-- {{getValue()}} -->
 
 
 <!--Property binding -->
-<h2 [innerHTML]="fullName"></h2>
+<!-- <h2 [innerHTML]="fullName"></h2>
 
 <h2 [innerHTML]="title"></h2>
 
@@ -28,11 +28,11 @@
 
 <h4 [style.color]="color">the color is red</h4>
 
-<input [value]="inputValue">
+<input [value]="inputValue"> -->
 
 <!--Event Binding -->
 
-<h3> Click the {{clickValue}} time</h3>
+<!-- <h3> Click the {{clickValue}} time</h3>
 
 <button (click)="click()">Click Me!!</button><br><br>
 
@@ -62,4 +62,15 @@
 
   <input (focus)="onfocus()" (blur)="onBlur()" placeholder="focus to me !">
 
-  <p>{{focusMessage}}</p>
+  <p>{{focusMessage}}</p> -->
+
+
+
+
+  <!--ngFor ->trackBy method-->
+    <ul>
+      <li *ngFor="let user of userList; trackBy:trackByUserId">{{user.name}}</li>
+    </ul>
+
+
+    <!--custom Directive -->
