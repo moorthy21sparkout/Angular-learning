@@ -72,5 +72,19 @@
       <li *ngFor="let user of userList; trackBy:trackByUserId">{{user.name}}</li>
     </ul>
 
+<div class=""></div>
+
+<div>
+  <button type="button" (click)="increament()">increament</button>
+  <button type="button" (click)="decreament()">decreament</button>
+<app-child [inputValue]="counter"></app-child>
+</div>
 
     <!--custom Directive -->
+
+
+    <input type="text" [(ngModel)]="valuedata">
+    <div>
+      <button (click)="show()">Show/Hide</button> <br><br>
+      <app-life-cycle-hooks [value]="valuedata"  *ngIf="showData"></app-life-cycle-hooks>
+    </div>
