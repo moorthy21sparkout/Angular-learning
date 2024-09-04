@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input, OnInit, TrackByFunction } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 import { ChildComponent } from "./child/child.component";
 import { LifeCycleHooksComponent } from './life-cycle-hooks/life-cycle-hooks.component';
+import { HighlightDirective } from './highlight.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, ChildComponent,LifeCycleHooksComponent],
+  imports: [RouterOutlet, FormsModule, CommonModule, ChildComponent,LifeCycleHooksComponent,HighlightDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -30,6 +31,31 @@ export class AppComponent implements OnInit {
   user !: string[];
   showData: boolean = false;
   valuedata:string = "Moorthy"
+  name =''
+
+  changeEvent(newEvent:string){
+    debugger
+    console.log("the value of modelchange event is",newEvent);
+    
+  }
+
+  items=[
+    {id:1,name:"ram",age:21},
+    {id:2,name:"raj",age:22},
+    {id:3,name:"kumar",age:24}
+  ]
+
+  datanew = 2;
+  trackById(index: number, item: { id: number; name: string; age: number }): number {
+    console.log('TrackBy called for item:', item);
+    return item.id; 
+  }
+
+  addItems(){
+    const data =this.items.push({id:5,name:"hari",age:34});
+    console.log("the value is",this.items);
+    
+  }
 
   getValue() {
     return "hello buddy is working good";
