@@ -107,3 +107,23 @@
 <input type="text" [(ngModel)]="name"  (ngModelChange)="changeEvent($event)"/>
 
 <p appHighlight >this is the yellow color</p>
+
+<p>Counter: {{count()}}</p>
+<button (click)="countIncreament()">increament</button><br><br>
+
+<button (click)="countDecreament()">decreament</button><br><br>
+
+<button (click)="logCount()">Log Count</button><br><br>
+
+
+<button (click)="setLocalStorage()">Set the value for local stroage</button><br><br>
+
+<button (click)="getLocalStorage()">To get the local stroage value: {{name}}</button><br><br>
+
+<button (click)="removeLocalStorage()">Remove the local stroage value</button><br><br>
+
+<button (click)="setSession()">Set the value for session</button><br><br>
+
+<button (click)="getSession()">To get the session value</button><br><br>
+
+<button (click)="removeSession()">Remove the session value</button><br><br>

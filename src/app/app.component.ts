@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, OnInit, TrackByFunction } from '@angular/core';
+import { Component, input, OnInit, TrackByFunction ,signal} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
@@ -32,7 +32,63 @@ export class AppComponent implements OnInit {
   showData: boolean = false;
   valuedata:string = "Moorthy"
   name =''
+  count =signal(0);
 
+
+  /**
+   * localstroage
+   */
+
+  setLocalStorage(){
+    localStorage.setItem("username","kesavan")
+    console.log("the localstorage set value is username=Kesavan");
+    
+  }
+  getLocalStorage(){
+    const name = localStorage.getItem('username');
+    console.log('the get the value is',name);
+    
+  }
+  removeLocalStorage(){
+    localStorage.removeItem('username');
+    console.log("the remove value is =username");
+    
+  }
+  /**
+   * to set the value from the session using the sessionstroage
+   */
+
+  setSession(){
+    sessionStorage.setItem('city','Tirupur');
+    console.log("to set the value from the session stroage city:Tirupur");
+    
+  }
+
+  getSession(){
+  const cityName = sessionStorage.getItem('city');
+  console.log("to get the value form  the session stroage",cityName);
+  
+  }
+  removeSession(){
+    const cityRemove=sessionStorage.removeItem('city');
+    console.log("remove the item in session",cityRemove);
+    
+  }
+/**
+ * signal is use for automaically update value .it no need of change 
+ * if using the observable ->it can't be update automatically . if you need the update using the subscribe or async pipes.
+ * but signal is automatically updated. 
+ * 
+ */
+  countIncreament(){
+    return this.count.set(this.count()+1)
+  }
+  countDecreament(){
+    return this.count.set(this.count()-1);
+  }
+  logCount() {
+    console.log('Current count value:', this.count()); 
+  }
   changeEvent(newEvent:string){
     debugger
     console.log("the value of modelchange event is",newEvent);
