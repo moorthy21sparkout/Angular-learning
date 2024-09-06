@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, OnInit, TrackByFunction ,signal} from '@angular/core';
+import { Component, input, OnInit, TrackByFunction ,signal,Signal} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
@@ -14,7 +14,7 @@ import { HighlightDirective } from './highlight.directive';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
 
   /**
    * string - interpolation
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   title = 'Learn-angular';
   fullName = "abu-Samson";
   isDisabled = true;
-  isActive = true;
+  // isActive = true;
   color = 'red';
   inputValue = "Go Back Your Home";
   private value: number = 123;
@@ -33,8 +33,35 @@ export class AppComponent implements OnInit {
   valuedata:string = "Moorthy"
   name =''
   count =signal(0);
+  isActive = signal(false);
+  showAlert = false;
+  private valueSignal = Signal.create(0);
 
 
+
+  setSignalValue(newValue:number){
+    this.valueSignal.set(newValue)
+  }
+  getSignalValue(){
+    this.valueSignal.update(value => value+1)
+  }
+  mutateSignalValue(factor:number){
+    this.valueSignal.mutate(value => value * factor);
+  }
+  /**
+   * Toggle
+   */
+
+  toggle(){
+    this.isActive.set(!this.isActive())
+  
+  if(this.isActive()){
+    this.showAlert = true;
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 4000);
+  }
+}
   /**
    * localstroage
    */
@@ -171,16 +198,16 @@ export class AppComponent implements OnInit {
     return user.id;
   }
 
-  checkObservable = new Observable((responce) => {
-    console.log("working");
-    setTimeout(() => { responce.next('1') }, 1000);
-    setTimeout(() => { responce.next('2') }, 2000);
-    setTimeout(() => { responce.next('3') }, 3000);
-    setTimeout(() => { responce.complete() }, 43330);
-    // setTimeout(() => {  responce.error(new Error("some thing is went to worng .please try it later"))}, 5000);
-    setTimeout(() => { responce.next('6') }, 6000);
-    setTimeout(() => { responce.next('7') }, 7000);
-    setTimeout(() => { responce.error('8') }, 8000);
+  // checkObservable = new Observable((responce) => {
+  //   console.log("working");
+  //   setTimeout(() => { responce.next('1') }, 1000);
+  //   setTimeout(() => { responce.next('2') }, 2000);
+  //   setTimeout(() => { responce.next('3') }, 3000);
+  //   setTimeout(() => { responce.complete() }, 43330);
+  //   // setTimeout(() => {  responce.error(new Error("some thing is went to worng .please try it later"))}, 5000);
+  //   setTimeout(() => { responce.next('6') }, 6000);
+  //   setTimeout(() => { responce.next('7') }, 7000);
+  //   setTimeout(() => { responce.error('8') }, 8000);
     // console.log('1');
     // console.log('2');
     // console.log('3');
@@ -188,36 +215,36 @@ export class AppComponent implements OnInit {
     // console.log('5');
     // console.log('6');
     // console.log('7');
-  })
-  ngOnInit(): void {
-    this.checkObservable.subscribe((value) => {
-      console.log(value);
+  // })
+  // ngOnInit(): void {
+  //   this.checkObservable.subscribe((value) => {
+  //     console.log(value);
 
-    }, (error) => {
-      // alert(error.message)
-    })
-  }
+  //   }, (error) => {
+  //     // alert(error.message)
+  //   })
+  // }
   /**
    * this method is use for the value is pass the private method
    * so we get the value and the set the value for the current value
    */
-  get counter() {
-    return this.value
-  }
+  // get counter() {
+  //   return this.value
+  // }
 
-  set counter(nums: number) {
-    this.value = nums;
-  }
-  increament() {
-    return this.counter++
+  // set counter(nums: number) {
+  //   this.value = nums;
+  // }
+  // increament() {
+  //   return this.counter++
 
-  }
+  // }
 
-  decreament() {
-    return this.counter--
-  }
+  // decreament() {
+  //   return this.counter--
+  // }
 
-  show() {
-    this.showData = !this.showData
-  }
+  // show() {
+  //   this.showData = !this.showData
+  // }
 }

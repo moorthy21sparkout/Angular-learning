@@ -68,31 +68,31 @@
 
 
   <!--ngFor ->trackBy method-->
-    <ul>
+    <!-- <ul>
       <li *ngFor="let user of userList; trackBy:trackByUserId">{{user.name}}</li>
     </ul>
 
-<div class=""></div>
+<div class=""></div> -->
 
-<div>
+<!-- <div>
   <button type="button" (click)="increament()">increament</button>
   <button type="button" (click)="decreament()">decreament</button>
 <app-child [inputValue]="counter"></app-child>
-</div>
+</div> -->
 
     <!--custom Directive -->
 
 
-    <input type="text" [(ngModel)]="valuedata">
+    <!-- <input type="text" [(ngModel)]="valuedata">
     <div>
       <button (click)="show()">Show/Hide</button> <br><br>
       <app-life-cycle-hooks [value]="valuedata"  *ngIf="showData"></app-life-cycle-hooks>
-    </div>
+    </div> -->
 
     <!-- <li *ngFor="let item of items">{{item.name}}</li>
     <button (click)="addItems()">Add Button</button> -->
 
-    <ul>
+    <!-- <ul>
       <li *ngFor="let item of items; trackBy: trackById">{{ item.name }}</li>
     </ul>
     <button (click)="addItems()">Add Item</button>
@@ -126,4 +126,15 @@
 
 <button (click)="getSession()">To get the session value</button><br><br>
 
-<button (click)="removeSession()">Remove the session value</button><br><br>
+<button (click)="removeSession()">Remove the session value</button><br><br> -->
+
+
+<!-- <p>status:{{isActive()?'isActive':'Inactive'}}</p>
+<button (click)="toggle()">toggle</button>
+<div *ngIf="showAlert" class="alert">
+  Now you see the Tamil content...
+</div> -->
+
+<button (click)="setSignalValue(10)"></button>
+<button (click)="getSignalValue()">Increment Value</button>
+<button (click)="mutateSignalValue(5)">Multiply Value by 5</button>
