@@ -6,11 +6,15 @@ import { Observable, Subscriber } from 'rxjs';
 import { ChildComponent } from "./child/child.component";
 import { LifeCycleHooksComponent } from './life-cycle-hooks/life-cycle-hooks.component';
 import { HighlightDirective } from './highlight.directive';
+import { ObservableComponent } from './observable/observable.component';
+import { SubjectComponent } from './subject/subject.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule, ChildComponent,LifeCycleHooksComponent,HighlightDirective],
+  imports: [RouterOutlet, FormsModule, CommonModule, ChildComponent,LifeCycleHooksComponent,HighlightDirective,
+            ObservableComponent,SubjectComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -35,7 +39,7 @@ export class AppComponent  {
   count =signal(0);
   isActive = signal(false);
   showAlert = false;
-  private valueSignal = Signal.create(0);
+  private valueSignal = signal(0);
 
 
 
@@ -45,9 +49,9 @@ export class AppComponent  {
   getSignalValue(){
     this.valueSignal.update(value => value+1)
   }
-  mutateSignalValue(factor:number){
-    this.valueSignal.mutate(value => value * factor);
-  }
+  // mutateSignalValue(factor:number){
+  //   this.valueSignal.mutate(value => value * factor);
+  // }
   /**
    * Toggle
    */
