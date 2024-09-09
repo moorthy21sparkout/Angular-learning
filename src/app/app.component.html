@@ -134,9 +134,12 @@
 <div *ngIf="showAlert" class="alert">
   Now you see the Tamil content...
 </div> -->
-
+<div style="display: flex; flex-direction: column; gap: 20px;"></div>
 <button (click)="setSignalValue(10)"></button>
 <button (click)="getSignalValue()">Increment Value</button>
 <button>Multiply Value by 5</button>
 <app-observable></app-observable>
 <app-subject></app-subject>
+<app-async-subject></app-async-subject>
+<app-behavior-subject></app-behavior-subject>
+<app-replay-subject></app-replay-subject>
