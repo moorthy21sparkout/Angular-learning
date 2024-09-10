@@ -11,12 +11,13 @@ import { SubjectComponent } from './subject/subject.component';
 import { AsyncSubjectComponent } from "./async-subject/async-subject.component";
 import { BehaviorSubjectComponent } from "./behavior-subject/behavior-subject.component";
 import { ReplaySubjectComponent } from "./replay-subject/replay-subject.component";
+import { PaymentComponent } from './payment/payment.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, FormsModule, CommonModule, ChildComponent, LifeCycleHooksComponent, HighlightDirective,
-    ObservableComponent, SubjectComponent, AsyncSubjectComponent, BehaviorSubjectComponent, ReplaySubjectComponent],
+    ObservableComponent, SubjectComponent, AsyncSubjectComponent, BehaviorSubjectComponent, ReplaySubjectComponent,PaymentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -42,6 +43,9 @@ export class AppComponent  {
   isActive = signal(false);
   showAlert = false;
   private valueSignal = signal(0);
+  userValue = {name:"ram",age:30,email:"ram@yopmail.com"};
+  longText: string = 'Angular Pipes are powerful.';
+  itemsValue: string[] = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
 
 
 

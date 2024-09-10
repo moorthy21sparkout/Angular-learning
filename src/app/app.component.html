@@ -1,8 +1,8 @@
 
 <!-- string interpolation -->
 <!-- the value is the come from the app.component.js-->
-<h1>{{title}} *</h1>
-<br>
+<!-- <h1>{{title}} *</h1>
+<br> -->
 
 <!--one way data binding is the one chnege the complnent side or view side-->
 <!-- {{fullName}} -->
@@ -134,7 +134,7 @@
 <div *ngIf="showAlert" class="alert">
   Now you see the Tamil content...
 </div> -->
-<div style="display: flex; flex-direction: column; gap: 20px;"></div>
+<!-- <div style="display: flex; flex-direction: column; gap: 20px;"></div>
 <button (click)="setSignalValue(10)"></button>
 <button (click)="getSignalValue()">Increment Value</button>
 <button>Multiply Value by 5</button>
@@ -143,3 +143,9 @@
 <app-async-subject></app-async-subject>
 <app-behavior-subject></app-behavior-subject>
 <app-replay-subject></app-replay-subject>
+
+<p>Json:{{userValue|json}}</p><br>
+<p>First 5 characters: {{ longText | slice:0:8 }}</p><br>
+<p>First 3 items: {{ itemsValue | slice:0:5 | json }}</p> -->
+
+<app-payment></app-payment>
