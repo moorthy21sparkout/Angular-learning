@@ -13,12 +13,13 @@ import { BehaviorSubjectComponent } from "./behavior-subject/behavior-subject.co
 import { ReplaySubjectComponent } from "./replay-subject/replay-subject.component";
 import { PaymentComponent } from './payment/payment.component';
 import { ExtendedComponent } from './extended/extended.component';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, FormsModule, CommonModule, ChildComponent, LifeCycleHooksComponent, HighlightDirective,
-    ObservableComponent, SubjectComponent, AsyncSubjectComponent, BehaviorSubjectComponent, ReplaySubjectComponent,PaymentComponent,ExtendedComponent ],
+    ObservableComponent, SubjectComponent, AsyncSubjectComponent, BehaviorSubjectComponent, ReplaySubjectComponent,PaymentComponent,ExtendedComponent ,LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
