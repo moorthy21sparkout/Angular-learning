@@ -15,14 +15,14 @@ export class PaymentComponent implements OnInit {
   cardElement: StripeCardElement | null = null;
   cardError: string | null | undefined = null;
   isProcessing = false;
-  successMessage:string|null = null;
+  successMessage: string | null = null;
   showSpinnerAfterSuccess = false;
 
 
   async ngOnInit() {
     this.stripe = await loadStripe('pk_test_51PxQZyIUmQzkVZO2uZ1vcmf2www9JNFM2oBi11aPoMcClvxhZ8RR2vmuBxfJcBw9yeya499pSKupWoDyefZ2k2Fz00XBk7YYYT');
     const elements = this.stripe!.elements();
-    console.log("the value is ",elements);
+    console.log("the value is ", elements);
     this.cardElement = elements.create('card');
     this.cardElement.mount('#card-element');
 
@@ -51,11 +51,15 @@ export class PaymentComponent implements OnInit {
 
       this.showSpinnerAfterSuccess = true;
 
-      setTimeout(()=>{
-        this.successMessage="payment is successfully!"
+      setTimeout(() => {
+        this.successMessage = "payment is successfully!"
         this.showSpinnerAfterSuccess = false
-      } ,3000);
-      }
-    this.isProcessing = false;
+
+        setTimeout(() => {
+          this.successMessage = '';
+        }, 2000);
+      }, 1000);
+      this.isProcessing = false;
+    }
   }
 }
