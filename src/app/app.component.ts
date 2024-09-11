@@ -12,12 +12,13 @@ import { AsyncSubjectComponent } from "./async-subject/async-subject.component";
 import { BehaviorSubjectComponent } from "./behavior-subject/behavior-subject.component";
 import { ReplaySubjectComponent } from "./replay-subject/replay-subject.component";
 import { PaymentComponent } from './payment/payment.component';
+import { ExtendedComponent } from './extended/extended.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, FormsModule, CommonModule, ChildComponent, LifeCycleHooksComponent, HighlightDirective,
-    ObservableComponent, SubjectComponent, AsyncSubjectComponent, BehaviorSubjectComponent, ReplaySubjectComponent,PaymentComponent],
+    ObservableComponent, SubjectComponent, AsyncSubjectComponent, BehaviorSubjectComponent, ReplaySubjectComponent,PaymentComponent,ExtendedComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
