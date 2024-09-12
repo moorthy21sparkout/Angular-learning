@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, OnInit, TrackByFunction ,signal,Signal} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 import { ChildComponent } from "./child/child.component";
 import { LifeCycleHooksComponent } from './life-cycle-hooks/life-cycle-hooks.component';
@@ -14,6 +14,7 @@ import { ReplaySubjectComponent } from "./replay-subject/replay-subject.componen
 import { PaymentComponent } from './payment/payment.component';
 import { ExtendedComponent } from './extended/extended.component';
 import { LoginComponent } from './login/login.component';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ import { LoginComponent } from './login/login.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
 
   /**
    * string - interpolation
@@ -48,8 +49,26 @@ export class AppComponent  {
   userValue = {name:"ram",age:30,email:"ram@yopmail.com"};
   longText: string = 'Angular Pipes are powerful.';
   itemsValue: string[] = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+  projectId: string | null= null;
+  projectData: any;
+ 
+  constructor(private ruoter:ActivatedRoute,
+    private userService:UserService
+  ){}
 
-
+  ngOnInit(): void {
+    const model = this.ruoter.paramMap.subscribe(
+      param=>{
+        this.projectId = param.get('id');
+        this.fetchData(this.projectId);
+      }
+    )
+  }
+  fetchData(id:any):void{
+    this.userService.getProjectId('id').subscribe((data: any)=>{
+      this.projectData = data;
+  })
+  }
 
   setSignalValue(newValue:number){
     this.valueSignal.set(newValue)
