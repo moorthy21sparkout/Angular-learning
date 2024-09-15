@@ -148,9 +148,16 @@
 <p>First 5 characters: {{ longText | slice:0:8 }}</p><br>
 <p>First 3 items: {{ itemsValue | slice:0:5 | json }}</p> -->
 
-<app-payment></app-payment>
+<!-- <app-payment></app-payment>
 
 <p>Inhertance method in angular </p>
 <app-extended></app-extended>
 
-<app-login></app-login>
+<app-login></app-login> -->
+
+<nav>
+  <a routerLink="/dashboard/profile">Profile</a> | 
+  <a routerLink="/dashboard/settings">Settings</a>
+</nav>
+
+<router-outlet></router-outlet>
